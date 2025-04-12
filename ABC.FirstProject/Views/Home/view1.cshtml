@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h1>hello mo</h1>
+<style>
+    h1{
+    color:red
+    }
+</style>
+
+@{
+    int x=10;
+    int y = x + 15;
+}
+<h4>X=@x</h4>
+   
+
+@for(int i=0;i<y;i++){
+    <h5>@i</h5>
+}
+@if(x>y){
+    <h1>x greater than y</h1>
+}
+else{
+    <h1>X+=@x less than Y=@y</h1>
+}
+<p>mmmmmmmmmmmmmmmmmmmmm</p>

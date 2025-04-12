@@ -1,0 +1,108 @@
+﻿@model List<Student>
+
+<h2 class="student-title">Student List</h2>
+
+<table class="student-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <img src="~/image/@item.ImageUrl" alt="@item.Name" class="student-image" />
+                </td>
+                <td>
+                    <!-- Form with button to submit to the details page -->
+                    <form method="get" action="@Url.Action("displaybyid", "Student", new { id = item.Id })">
+                        <button type="submit" class="btn-details">View Details</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .student-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #007acc;
+    }
+
+    .student-table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+        .student-table th, .student-table td {
+            padding: 14px 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .student-table th {
+            background-color: #007acc;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .student-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .student-table tr:hover {
+            background-color: #e0f2ff;
+        }
+
+        .student-table td {
+            font-size: 14px;
+            color: #333;
+        }
+
+    .student-image {
+        max-width: 80px;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+        .student-image:hover {
+            transform: scale(1.1);
+        }
+
+    .btn-details {
+        background-color: #007acc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-details:hover {
+            background-color: #005fa3;
+        }
+
+    /* Mobile responsiveness */
+ 
+</style>

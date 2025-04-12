@@ -1,0 +1,36 @@
+﻿@model Student
+
+<h2>Student Details</h2>
+
+<div class="student-card">
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <img src="~/image/@Model.ImageUrl" alt="@Model.Name" width="150" />
+</div>
+
+<a href="@Url.Action("displayall", "Student")">Back to List</a>
+
+<style>
+    .student-card {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 300px;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+        .student-card img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+    h2 {
+        text-align: center;
+        color: #007acc;
+    }
+</style>
